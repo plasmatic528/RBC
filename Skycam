@@ -1,0 +1,82 @@
+-- SKYCAM PART
+
+local FreePart = Instance.new("Part", workspace)
+FreePart.Anchored = true
+FreePart.Size = Vector3.new(6, 1, 6)
+FreePart.Transparency = 1
+FreePart.Orientation = Vector3.new(-19.81, -90, 0)
+
+-- FOV BYPASS
+
+local gmt = getrawmetatable(game)
+setreadonly(gmt, false)
+local oldindex = gmt.__index
+gmt.__index = newcclosure(function(self, b)
+    if b == "FieldOfView" then return 70 end
+    return oldindex(self, b)
+end)
+
+-- CHANGE FOV
+
+game:GetService("TweenService"):Create(workspace.Camera, TweenInfo.new(0.7),
+                                       {FieldOfView = 50}):Play()
+
+-- MAIN LOOP
+
+game.RunService.Stepped:Connect(function()
+    if workspace:FindFirstChild("Football") then
+        workspace.Camera.CameraType = Enum.CameraType.Scriptable
+        FreePart.Position = Vector3.new(-100, 35, workspace.LineTogo.Position.Z)
+        workspace.Camera.CFrame = FreePart.CFrame
+        local football
+
+        for i, v in pairs(workspace:GetDescendants()) do
+            if v.Name == "Football" then
+                local mag = (v.Position - FreePart.Position).magnitude
+                if mag > 100 then
+                    game:GetService("TweenService"):Create(workspace.Camera,
+                                                           TweenInfo.new(0.7),
+                                                           {FieldOfView = 40})
+                        :Play()
+                elseif mag > 270 then
+                    game:GetService("TweenService"):Create(workspace.Camera,
+                                                           TweenInfo.new(0.7),
+                                                           {FieldOfView = 30})
+                        :Play()
+                end
+                football = v
+            end
+        end
+
+        if football ~= nil then
+            if football:IsA("Part") then
+                game:GetService("TweenService"):Create(FreePart,
+                                                       TweenInfo.new(0.04), {
+                    CFrame = CFrame.new(FreePart.Position, football.Position +
+                                            football.Velocity * 0.05)
+                }):Play()
+            else
+                game:GetService("TweenService"):Create(FreePart,
+                                                       TweenInfo.new(0.04), {
+                    CFrame = CFrame.new(FreePart.Position,
+                                        football.Handle.Position)
+                }):Play()
+            end
+        end
+    else
+        local football
+
+        for i, v in pairs(workspace:GetDescendants()) do
+            if v.Name == "Football" then football = v end
+        end
+        if football ~= nil then
+            workspace.Camera.CameraType = Enum.CameraType.Custom
+            game:GetService("TweenService"):Create(workspace.Camera,
+                                                   TweenInfo.new(0.7),
+                                                   {FieldOfView = 70}):Play()
+            workspace.Camera.CameraSubject = football.Handle
+            task.wait(0.1)
+            workspace.Camera.CameraSubject = football.Handle
+        end
+    end
+end)
