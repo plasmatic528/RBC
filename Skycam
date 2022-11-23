@@ -17,15 +17,30 @@ end)
 
 -- CHANGE FOV
 
-game:GetService("TweenService"):Create(workspace.Camera, TweenInfo.new(0.7),
-                                       {FieldOfView = 50}):Play()
+game:GetService("TweenService"):Create(workspace.Camera, TweenInfo.new(0.7),{FieldOfView = 50}):Play()
+
+
 
 -- MAIN LOOP
 
 game.RunService.Stepped:Connect(function()
     if workspace:FindFirstChild("Football") then
-        if not game.Players.LocalPlayer.PlayerGui.MainGui.Scoreboard.Status.Text ==
-            "PAT" then
+        if game.Players.LocalPlayer.PlayerGui.MainGui.Scoreboard.Status.Text == "PAT" then
+            local football
+
+            for i, v in pairs(workspace:GetDescendants()) do
+                if v.Name == "Football" then football = v end
+            end
+            if football ~= nil then
+                workspace.Camera.CameraType = Enum.CameraType.Custom
+                game:GetService("TweenService"):Create(workspace.Camera,
+                                                       TweenInfo.new(0.7),
+                                                       {FieldOfView = 70}):Play()
+                workspace.Camera.CameraSubject = football.Handle
+                task.wait(0.1)
+                workspace.Camera.CameraSubject = football.Handle
+            end
+        else
             workspace.Camera.CameraType = Enum.CameraType.Scriptable
             FreePart.Position = Vector3.new(-100, 35,
                                             workspace.LineTogo.Position.Z)
@@ -69,22 +84,6 @@ game.RunService.Stepped:Connect(function()
                                             football.Handle.Position)
                     }):Play()
                 end
-            end
-        else
-            local football
-
-            for i, v in pairs(workspace:GetDescendants()) do
-                if v.Name == "Football" then football = v end
-            end
-            if football ~= nil then
-                workspace.Camera.CameraType = Enum.CameraType.Custom
-                game:GetService("TweenService"):Create(workspace.Camera,
-                                                       TweenInfo.new(0.7),
-                                                       {FieldOfView = 70})
-                    :Play()
-                workspace.Camera.CameraSubject = football.Handle
-                task.wait(0.1)
-                workspace.Camera.CameraSubject = football.Handle
             end
         end
     else
