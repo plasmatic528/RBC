@@ -36,9 +36,7 @@ game.RunService.Stepped:Connect(function()
                 game:GetService("TweenService"):Create(workspace.Camera,
                                                        TweenInfo.new(0.7),
                                                        {FieldOfView = 70}):Play()
-                workspace.Camera.CameraSubject = football.Handle
-                task.wait(0.1)
-                workspace.Camera.CameraSubject = football.Handle
+                workspace.Camera.CameraSubject = football
             end
         else
             workspace.Camera.CameraType = Enum.CameraType.Scriptable
@@ -97,8 +95,6 @@ game.RunService.Stepped:Connect(function()
             game:GetService("TweenService"):Create(workspace.Camera,
                                                    TweenInfo.new(0.7),
                                                    {FieldOfView = 70}):Play()
-            workspace.Camera.CameraSubject = football.Handle
-            task.wait(0.1)
             workspace.Camera.CameraSubject = football.Handle
         end
     end
