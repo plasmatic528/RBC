@@ -17,7 +17,7 @@ end)
 
 -- CHANGE FOV
 
-game:GetService("TweenService"):Create(workspace.Camera, TweenInfo.new(0.7),{FieldOfView = 38}):Play()
+game:GetService("TweenService"):Create(workspace.Camera, TweenInfo.new(0.7),{FieldOfView = 28}):Play()
 
 
 
@@ -40,8 +40,7 @@ game.RunService.Stepped:Connect(function()
             end
         else
             workspace.Camera.CameraType = Enum.CameraType.Scriptable
-            FreePart.Position = Vector3.new(-140, 50,
-                                            workspace.LineDownWall.Position.Z)
+            FreePart.Position = Vector3.new(-160, 60,0)
             workspace.Camera.CFrame = FreePart.CFrame
             local football
 
@@ -52,13 +51,19 @@ game.RunService.Stepped:Connect(function()
                         game:GetService("TweenService"):Create(workspace.Camera,
                                                                TweenInfo.new(0.7),
                                                                {
-                            FieldOfView = 28
+                            FieldOfView = 18
                         }):Play()
                     elseif mag > 270 then
                         game:GetService("TweenService"):Create(workspace.Camera,
                                                                TweenInfo.new(0.7),
                                                                {
-                            FieldOfView = 20
+                            FieldOfView = 8
+                        }):Play()
+                    elseif mag > 350 then
+                                                game:GetService("TweenService"):Create(workspace.Camera,
+                                                               TweenInfo.new(0.7),
+                                                               {
+                            FieldOfView = 4
                         }):Play()
                     end
                     football = v
