@@ -40,7 +40,7 @@ game.RunService.Stepped:Connect(function()
             end
         else
             workspace.Camera.CameraType = Enum.CameraType.Scriptable
-            FreePart.Position = Vector3.new(-120, 34,workspace.LineDownWall.Position.Z)
+            FreePart.Position = Vector3.new(-160, 38,workspace.LineDownWall.Position.Z)
             workspace.Camera.CFrame = FreePart.CFrame
             local football
 
@@ -78,7 +78,7 @@ game.RunService.Stepped:Connect(function()
 
             if football ~= nil then
                 if football:IsA("Part") then
-                    game:GetService("TweenService"):Create(FreePart,
+                                            game:GetService("TweenService"):Create(FreePart,
                                                            TweenInfo.new(0.04),
                                                            {
                         CFrame = CFrame.new(FreePart.Position,
