@@ -1,32 +1,41 @@
 for i,v in pairs(workspace.Models.Field.Grass:GetDescendants()) do
     if v:IsA("Part") then
-        v.Color = Color3.fromRGB(42, 84, 46)
+        v.Color = Color3.fromRGB(118, 143, 132)
     end
 end
 
-game:GetService("MaterialService").Use2022Materials = true
-
-for i,v in pairs(workspace.SkyWeather:GetChildren()) do
-    if v.name == "Snow" then
-       v.Enabled = true
-       v.Rate = 130
-       v.Speed = NumberRange.new(3,8)
-       v.Lifetime = NumberRange.new(30,40)
-    end
-end
-game.Lighting.TimeOfDay = 2
+game.Lighting.TimeOfDay = 12
 
 local cp = game:GetService('ContentProvider')
 
 cp:PreloadAsync({"https://www.roblox.com/asset/?id=11488072236"})
 
 game.Lighting.GlobalShadows = true
-game.Lighting.Ambient = Color3.fromRGB(226,223,210)
-game.Lighting.FogStart = 95
-game.Lighting.FogEnd = 550
-game.Lighting.FogColor = Color3.fromRGB(72, 87, 99)
+game.Lighting.Ambient = Color3.fromRGB(216,213,234)
+game.Lighting.FogStart = 85
+game.Lighting.FogEnd = 525
+game.Lighting.FogColor = Color3.fromRGB(90, 90, 140)
 local ColorCorrection = Instance.new("ColorCorrectionEffect")
 ColorCorrection.Parent = game.Lighting
 ColorCorrection.Saturation = 0.35
 ColorCorrection.Contrast = 0.4
 workspace.Models.Field.Grass.Normal.Mid.SurfaceGui.ImageLabel.Image = "https://www.roblox.com/asset/?id=11488072236"
+
+game.RunService.Stepped:Connect(function()
+    for _,v in pairs(workspace:GetChildren()) do
+       if v.Name == "Football" then
+           v.Trail.Lifetime = 100
+        end
+    end
+end)
+
+game.RunService.Stepped:Connect(function()
+    for _,v in pairs(game.Players:GetPlayers()) do
+        for _,v in pairs(v.Character.Uniform:GetDescendants()) do
+            if v:IsA("Part") then
+               v.Reflectance = 0.3
+               v.Material = Enum.Material.Glass
+            end
+        end
+    end
+end)
