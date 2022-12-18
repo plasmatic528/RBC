@@ -4,7 +4,7 @@ for i,v in pairs(workspace.Models.Field.Grass:GetDescendants()) do
     end
 end
 
-game.Lighting.TimeOfDay = 3
+game.Lighting.TimeOfDay = 11
 
 local cp = game:GetService('ContentProvider')
 
