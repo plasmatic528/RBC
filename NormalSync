@@ -7,16 +7,22 @@ writefile("Pclock.txt", s.Playclock.TextLabel.Text)
 writefile("Status.txt", s.Status.Text)
 writefile("Homescore.txt", s.HomeScore.TextLabel.Text)
 writefile("Awayscore.txt", s.AwayScore.TextLabel.Text)
-writefile('Yardline.txt', s.Yardline.Text)
 writefile('FGYards.txt', tonumber(s.Yardline.Text) + 17)
 
+
+game.RunService.Stepped:Connect(function()
+    local split = string.split(s.Parent.Status.Text, ' ')
+    
+    if s.Parent.Status.Text:match("Touchdown!") then
+        writefile('Yardline.txt', args[1])
+    end
+end)
 
 s.Clock:GetPropertyChangedSignal("Text"):Connect(function()
 writefile("Clock.txt", s.Clock.Text)
 end)
 
 s.Yardline:GetPropertyChangedSignal("Text"):Connect(function()
-writefile('Yardline.txt', s.Yardline.Text)
 writefile('FGYards.txt', tonumber(s.Yardline.Text) + 17)
 end)
 
