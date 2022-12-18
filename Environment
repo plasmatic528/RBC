@@ -4,7 +4,7 @@ for i,v in pairs(workspace.Models.Field.Grass:GetDescendants()) do
     end
 end
 
-game.Lighting.TimeOfDay = 12
+game.Lighting.TimeOfDay = 3
 
 local cp = game:GetService('ContentProvider')
 
@@ -14,7 +14,7 @@ game.Lighting.GlobalShadows = true
 game.Lighting.Ambient = Color3.fromRGB(216,213,234)
 game.Lighting.FogStart = 85
 game.Lighting.FogEnd = 525
-game.Lighting.FogColor = Color3.fromRGB(90, 90, 140)
+game.Lighting.FogColor = Color3.fromRGB(40, 40, 60)
 local ColorCorrection = Instance.new("ColorCorrectionEffect")
 ColorCorrection.Parent = game.Lighting
 ColorCorrection.Saturation = 0.35
@@ -33,7 +33,7 @@ game.RunService.Stepped:Connect(function()
     for _,v in pairs(game.Players:GetPlayers()) do
         for _,v in pairs(v.Character.Uniform:GetDescendants()) do
             if v:IsA("Part") then
-               v.Reflectance = 0.3
+               v.Reflectance = 0.4
                v.Material = Enum.Material.Glass
             end
         end
