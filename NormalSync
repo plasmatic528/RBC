@@ -14,7 +14,7 @@ game.RunService.Stepped:Connect(function()
     local split = string.split(s.Parent.Status.Text, ' ')
     
     if s.Parent.Status.Text:match("Touchdown!") then
-        writefile('Yardline.txt', args[1])
+        writefile('Yardline.txt', tostring(math.round(args[1])))
     end
 end)
 
