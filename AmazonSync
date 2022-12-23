@@ -12,7 +12,7 @@ writefile('Yardline.txt', s.Yardline.Text)
 writefile('FGYards.txt', tonumber(s.Yardline.Text) + 17)
 
 game.RunService.Stepped:Connect(function()
-    local split = string.split(s.Parent.Status.Text, ' ')
+    local split = string.split(s.Parent.Message.Text, ' ')
     
     if s.Parent.Status.Text:match("Touchdown!") then
         writefile('Yardline.txt', tostring(math.round(args[1])))
