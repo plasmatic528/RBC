@@ -1,4 +1,5 @@
 local s = game.Players.LocalPlayer.PlayerGui.MainGui:FindFirstChild("Scoreboard")
+local Message = s.Parent.Message
 
 s.Position = UDim2.new(1,0,-0.02,0)
 
@@ -10,12 +11,21 @@ writefile("Awayscore.txt", s.AwayScore.TextLabel.Text)
 writefile('FGYards.txt', tonumber(s.Yardline.Text) + 17)
 
 
+
 game.RunService.Stepped:Connect(function()
     local split = string.split(s.Parent.Message.Text, ' ')
     
     if s.Parent.Message.Text:match("Touchdown!") then
         writefile('Yardline.txt', tostring(math.round(args[1])))
     end
+    
+    Message.Font = Enum.Font.RobotoCondensed
+    Message.TextColor3 = Color3.fromRGB(255, 255, 255)
+    Message.TextScaled = true
+    Message.TextSize = 96.000
+    Message.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+    Message.TextStrokeTransparency = 0.000
+    Message.TextWrapped = true
 end)
 
 s.Clock:GetPropertyChangedSignal("Text"):Connect(function()
