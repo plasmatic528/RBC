@@ -23,8 +23,6 @@ game.RunService.Stepped:Connect(function()
     Message.TextColor3 = Color3.fromRGB(255, 255, 255)
     Message.TextScaled = false
     Message.TextSize = 65.000
-    Message.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
-    Message.TextStrokeTransparency = 0.000
     Message.TextWrapped = true
 end)
 
