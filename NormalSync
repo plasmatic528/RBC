@@ -19,10 +19,10 @@ game.RunService.Stepped:Connect(function()
         writefile('Yardline.txt', tostring(math.round(args[1])))
     end
     
-    Message.Font = Enum.Font.RobotoCondensed
+    Message.Font = Enum.Font.TitilliumWeb
     Message.TextColor3 = Color3.fromRGB(255, 255, 255)
-    Message.TextScaled = true
-    Message.TextSize = 96.000
+    Message.TextScaled = false
+    Message.TextSize = 65.000
     Message.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
     Message.TextStrokeTransparency = 0.000
     Message.TextWrapped = true
