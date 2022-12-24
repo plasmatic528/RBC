@@ -4,7 +4,7 @@ local Message = s.Parent.Message
 
 s.Position = UDim2.new(1,0,-0.02,0)
 
-writefile("Clock.txt", tostring(split[2])
+writefile("Clock.txt", tostring(split[2]))
 writefile("Pclock.txt", s.Playclock.TextLabel.Text)
 writefile("Status.txt", s.Status.Text)
 writefile("Homescore.txt", s.HomeScore.TextLabel.Text)
