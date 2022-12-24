@@ -1,9 +1,10 @@
 local s = game.Players.LocalPlayer.PlayerGui.MainGui:FindFirstChild("Scoreboard")
+local split = string.split(s.Clock.Text, ' ')
 local Message = s.Parent.Message
 
 s.Position = UDim2.new(1,0,-0.02,0)
 
-writefile("Clock.txt", tostring(s.Clock.Text))
+writefile("Clock.txt", tostring(split[2])
 writefile("Pclock.txt", s.Playclock.TextLabel.Text)
 writefile("Status.txt", s.Status.Text)
 writefile("Homescore.txt", s.HomeScore.TextLabel.Text)
@@ -23,7 +24,8 @@ writefile('Yardline.txt', Message.Text)
 end)
 
 s.Clock:GetPropertyChangedSignal("Text"):Connect(function()
-writefile("Clock.txt", s.Clock.Text)
+local split = string.split(s.Clock.Text, ' ')
+writefile("Clock.txt", split[2])
 end)
 
 s.Yardline:GetPropertyChangedSignal("Text"):Connect(function()
