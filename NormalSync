@@ -13,9 +13,8 @@ writefile('FGYards.txt', tonumber(s.Yardline.Text) + 17)
 
 
 game.RunService.Stepped:Connect(function()
-    local split = string.split(s.Parent.Message.Text, ' ')
     
-writefile('Yardline.txt', tostring(math.round(args[1])))
+writefile('Yardline.txt', Message.Text)
     
     Message.Font = Enum.Font.TitilliumWeb
     Message.TextColor3 = Color3.fromRGB(255, 255, 255)
