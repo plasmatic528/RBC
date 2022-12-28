@@ -54,7 +54,7 @@ local function newLighting()
     local ColorCor = create("ColorCorrectionEffect",lighting,{
         Brightness = 0.1,
         Contrast = 0.1,
-        Saturation = .1,
+        Saturation = .4,
         TintColor = Color3.fromRGB(230,230,230)
     })
     local SunRays = create("SunRaysEffect",lighting,{
@@ -88,7 +88,7 @@ local function removeStadiumShadows()
     local stadium = models.Stadium
     for _,v in pairs(stadium:GetDescendants()) do
         if v:IsA('BasePart') then
-            if v.Position.Y < 55 then
+            if v.Position.Y < 65 then
             v.CastShadow = true
             end
         end
