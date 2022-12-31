@@ -21,6 +21,7 @@ writefile('Yardline.txt', Message.Text)
     Message.TextScaled = false
     Message.TextSize = 65.000
     Message.TextWrapped = true
+    Message.TextStrokeColor3 = Color3.fromRGB(0,0,0)
 end)
 
 s.Clock:GetPropertyChangedSignal("Text"):Connect(function()
