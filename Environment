@@ -7,7 +7,7 @@ if weather then weather:Destroy() end
 
 for i,v in pairs(workspace.Models.Field.Grass:GetDescendants()) do
     if v:IsA("Part") then
-        v.Color = Color3.fromRGB(48, 159, 55)
+        v.Color = Color3.fromRGB(48, 139, 55)
     end
 end
 
