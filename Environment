@@ -98,3 +98,13 @@ local function removeStadiumShadows()
 end
 
 removeStadiumShadows()
+
+game.RunService.Stepped:Connect(function()
+    for i,v in pairs(game.Players:GetPlayers()) do
+        for i,v in pairs(v.Character.Uniform:GetDescendants()) do
+            if v:IsA("BasePart") then
+                v.Reflectance = 0.35
+            end
+        end
+    end
+end)
