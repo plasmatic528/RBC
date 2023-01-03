@@ -82,7 +82,7 @@ game.RunService.Stepped:Connect(function()
                                                            TweenInfo.new(0.04),
                                                            {
                         CFrame = CFrame.new(FreePart.Position,
-                                            football.Position +
+                                            Vector3.new(football.Position.X, 7, football.Position.Z) +
                                                 football.Velocity * 0.05)
                     }):Play()
                 else
