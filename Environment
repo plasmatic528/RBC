@@ -22,8 +22,8 @@ disableConnections(lighting.Changed)
 local lightingProps = {
     Ambient = Color3.fromRGB(2,2,85),
     Brightness = 1.25,
-    ColorShift_Bottom = Color3.fromRGB(0,0,35),
-    ColorShift_Top = Color3.fromRGB(0,0,35),
+    ColorShift_Bottom = Color3.fromRGB(0,0,65),
+    ColorShift_Top = Color3.fromRGB(0,0,65),
     EnvironmentDiffuseScale = 0.3,
     EnvironmentSpecularScale = 0.2,
     GlobalShadows = true,
