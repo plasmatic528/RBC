@@ -7,7 +7,7 @@ if weather then weather:Destroy() end
 
 for i,v in pairs(workspace.Models.Field.Grass:GetDescendants()) do
     if v:IsA("Part") then
-        v.Color = Color3.fromRGB(48, 139, 55)
+        v.Color = Color3.fromRGB(28, 119, 35)
     end
 end
 
@@ -20,7 +20,7 @@ disableConnections(lighting.ChildAdded)
 disableConnections(lighting.DescendantAdded)
 disableConnections(lighting.Changed)
 local lightingProps = {
-    Ambient = Color3.fromRGB(2,2,55),
+    Ambient = Color3.fromRGB(2,2,85),
     Brightness = 1.25,
     ColorShift_Bottom = Color3.fromRGB(0,0,35),
     ColorShift_Top = Color3.fromRGB(0,0,35),
