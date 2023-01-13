@@ -30,11 +30,6 @@ writefile('Yardline.txt', Message.Text)
     if Message.Parent:FindFirstChild("ReplayDetails") then
        Message.Parent.ReplayDetails:Destroy() 
     end
-    
-    local thing = Replay.Text:lower()
-    if thing:find("replay") then
-       Replay.Text = "LFG SWEET 16 REPLAY" 
-    end
 end)
 
 s.Clock:GetPropertyChangedSignal("Text"):Connect(function()
