@@ -40,7 +40,7 @@ game.RunService.Stepped:Connect(function()
             end
         else
             workspace.Camera.CameraType = Enum.CameraType.Scriptable
-            FreePart.Position = Vector3.new(-120, 35,workspace.LineDownWall.Position.Z)
+            FreePart.Position = Vector3.new(-120, 45,workspace.LineDownWall.Position.Z)
             workspace.Camera.CFrame = FreePart.CFrame
             local football
 
@@ -51,25 +51,25 @@ game.RunService.Stepped:Connect(function()
                                                 game:GetService("TweenService"):Create(workspace.Camera,
                                                                TweenInfo.new(0.7),
                                                                {
-                            FieldOfView = 30
+                            FieldOfView = 40
                         }):Play()
                     elseif mag > 180 then
                         game:GetService("TweenService"):Create(workspace.Camera,
                                                                TweenInfo.new(0.7),
                                                                {
-                            FieldOfView = 20
+                            FieldOfView = 30
                         }):Play()
                     elseif mag > 300 then
                         game:GetService("TweenService"):Create(workspace.Camera,
                                                                TweenInfo.new(0.7),
                                                                {
-                            FieldOfView = 15
+                            FieldOfView = 25
                         }):Play()
                     elseif mag > 400 then
                                                 game:GetService("TweenService"):Create(workspace.Camera,
                                                                TweenInfo.new(0.7),
                                                                {
-                            FieldOfView = 10
+                            FieldOfView = 20
                         }):Play()
                     end
                     football = v
