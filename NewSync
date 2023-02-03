@@ -35,7 +35,8 @@ writefile('Yardline.txt', Message.Text)
 end)
 
 s.Clock:GetPropertyChangedSignal("Text"):Connect(function()
-writefile("Clock.txt", s.Clock.Text)
+writefile("FootballFusion/ClockTime.txt", tostring(spl[2]))
+writefile("FootballFusion/Quarter.txt", tostring(spl[1]))
 end)
 
 s.Yardline:GetPropertyChangedSignal("Text"):Connect(function()
