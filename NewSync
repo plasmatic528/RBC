@@ -16,7 +16,7 @@ writefile('FootballFusion/FGYards.txt', tonumber(s.Yardline.Text) + 17)
 
 game.RunService.Stepped:Connect(function()
     
-writefile('Yardline.txt', Message.Text)
+writefile('FootballFusion/Yardline.txt', Message.Text)
     
     Message.Font = Enum.Font.JosefinSans
     Message.TextColor3 = Color3.fromRGB(255, 255, 255)
