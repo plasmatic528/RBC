@@ -40,21 +40,21 @@ writefile("FootballFusion/Quarter.txt", tostring(spl[1]))
 end)
 
 s.Yardline:GetPropertyChangedSignal("Text"):Connect(function()
-writefile('FGYards.txt', tonumber(s.Yardline.Text) + 17)
+writefile('FootballFusion/FGYards.txt', tonumber(s.Yardline.Text) + 17)
 end)
 
 s.Status:GetPropertyChangedSignal("Text"):Connect(function()
-writefile("Status.txt", s.Status.Text)
+writefile("FootballFusion/Status.txt", s.Status.Text)
 end)
 
 s.Playclock.TextLabel:GetPropertyChangedSignal("Text"):Connect(function()
-writefile("Pclock.txt", s.Playclock.TextLabel.Text)
+writefile("FootballFusion/Pclock.txt", s.Playclock.TextLabel.Text)
 end)
 
 s.HomeScore.TextLabel:GetPropertyChangedSignal("Text"):Connect(function()
-writefile("Homescore.txt", s.HomeScore.TextLabel.Text)
+writefile("FootballFusion/Homescore.txt", s.HomeScore.TextLabel.Text)
 end)
 
 s.AwayScore.TextLabel:GetPropertyChangedSignal("Text"):Connect(function()
-writefile("Awayscore.txt", s.AwayScore.TextLabel.Text)
+writefile("FootballFusion/Awayscore.txt", s.AwayScore.TextLabel.Text)
 end)
