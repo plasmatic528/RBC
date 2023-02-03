@@ -1,0 +1,59 @@
+local s = game.Players.LocalPlayer.PlayerGui.MainGui:FindFirstChild("Scoreboard")
+local Message = s.Parent.Message
+local spl = string.split(s.Clock, ' ')
+
+s.Position = UDim2.new(1,0,-0.02,0)
+makefolder('FootballFusion')
+writefile("FootballFusion/ClockTime.txt", tostring(spl[2]))
+writefile("FootballFusion/Quarter.txt", tostring(spl[1]))
+writefile("FootballFusion/Pclock.txt", s.Playclock.TextLabel.Text)
+writefile("FootballFusion/Status.txt", s.Status.Text)
+writefile("FootballFusion/Homescore.txt", s.HomeScore.TextLabel.Text)
+writefile("FootballFusion/Awayscore.txt", s.AwayScore.TextLabel.Text)
+writefile('FootballFusion/FGYards.txt', tonumber(s.Yardline.Text) + 17)
+
+
+
+game.RunService.Stepped:Connect(function()
+    
+writefile('Yardline.txt', Message.Text)
+    
+    Message.Font = Enum.Font.JosefinSans
+    Message.TextColor3 = Color3.fromRGB(255, 255, 255)
+    Message.TextScaled = false
+    Message.TextSize = 65.000
+    Message.TextWrapped = true
+    Message.TextStrokeColor3 = Color3.fromRGB(0,0,0)
+    
+    local Logo = Message.Parent.Transition.NameLogo
+    local Replay = Message.Parent.Transition.Message
+    
+    Logo.ImageColor3 = Color3.fromRGB(155,0,255)
+    if Message.Parent:FindFirstChild("ReplayDetails") then
+       Message.Parent.ReplayDetails:Destroy() 
+    end
+end)
+
+s.Clock:GetPropertyChangedSignal("Text"):Connect(function()
+writefile("Clock.txt", s.Clock.Text)
+end)
+
+s.Yardline:GetPropertyChangedSignal("Text"):Connect(function()
+writefile('FGYards.txt', tonumber(s.Yardline.Text) + 17)
+end)
+
+s.Status:GetPropertyChangedSignal("Text"):Connect(function()
+writefile("Status.txt", s.Status.Text)
+end)
+
+s.Playclock.TextLabel:GetPropertyChangedSignal("Text"):Connect(function()
+writefile("Pclock.txt", s.Playclock.TextLabel.Text)
+end)
+
+s.HomeScore.TextLabel:GetPropertyChangedSignal("Text"):Connect(function()
+writefile("Homescore.txt", s.HomeScore.TextLabel.Text)
+end)
+
+s.AwayScore.TextLabel:GetPropertyChangedSignal("Text"):Connect(function()
+writefile("Awayscore.txt", s.AwayScore.TextLabel.Text)
+end)
